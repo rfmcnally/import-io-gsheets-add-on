@@ -1,0 +1,29 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+      $(function() {
+         $('#buttonUpdate').click(updateUrlRange);
+         google.script.run.withSuccessHandler(getExtractorId)
+          .getExtractorId();
+         google.script.run.withSuccessHandler(getUrlRange)
+          .getUrlRange();
+          });
+      
+      function getExtractorId(extractorId) {
+        var inputExtractor = document.getElementById('inputExtractor');
+        inputExtractor.value = extractorId;
+      }
+      
+      function getUrlRange(urlRange) {
+        var inputRange = document.getElementById('inputRange');
+        inputRange.value = urlRange;
+      }
+      
+      function updateUrlRange() {
+        var inputRange = document.getElementById('inputRange').value();
+        urlRange = google.script.run.updateUrlRange(inputRange);
+      }
+      
+      function updateExtractorId(extractorId) {
+      }
+
+</script>
